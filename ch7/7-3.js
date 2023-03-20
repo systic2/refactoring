@@ -4,7 +4,7 @@ export class Order {
   }
 
   isHighPriority() {
-    return this.priority === 'high' || this.priority === 'rush';
+    return this.priority.higherThan(new Priority('normal'));
   }
 }
 
@@ -22,7 +22,7 @@ class Priority {
   }
 
   get index() {
-    return Priority.legalValues().findIndex(this.#value);
+    return Priority.legalValues().indexOf(this.#value);
   }
 
   equals(other) {
@@ -37,9 +37,9 @@ class Priority {
 }
 
 const orders = [
-  new Order({ priority: 'normal' }),
-  new Order({ priority: 'high' }),
-  new Order({ priority: 'rush' }),
+  new Order({ priority: new Priority('normal') }),
+  new Order({ priority: new Priority('high') }),
+  new Order({ priority: new Priority('rush') }),
 ];
 
 const highPriorityCount = orders.filter((o) => o.isHighPriority()).length;
