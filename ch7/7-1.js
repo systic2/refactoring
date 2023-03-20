@@ -30,7 +30,7 @@ class Organization {
 
   // set 있는 경우
   // get rawData() {
-  //   return { name: this.#name, country: this.#country, }; // 얕은복사, cloneDeep
+  //   return { name: this.name, country: this.country, }; // 얕은복사, cloneDeep
   // }
 }
 const organization = new Organization({
