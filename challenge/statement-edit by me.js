@@ -94,9 +94,6 @@ class Statement {
     let result = 0;
     for (let perf of this.performances) {
       const play = this.plays[perf.playID];
-      
-
-      
       result += this.thisAmount(perf, play.type);
     }
     return result;
